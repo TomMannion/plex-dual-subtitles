@@ -1,0 +1,369 @@
+/**
+ * PLEX DUALSUB MANAGER — BRUTALIST TYPOGRAPHY
+ *
+ * Contrasting weights. Code-inspired body. Architectural headings.
+ *
+ * Font Stack:
+ * - Headings: Space Grotesk (Bold, geometric, architectural)
+ * - Body: Hack (Monospace, terminal-inspired, technical)
+ */
+
+/* ==========================================================================
+   1. FONT IMPORTS
+   ========================================================================== */
+
+/* Space Grotesk — Headings (Google Fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap');
+
+/* Hack — Body Text (jsDelivr CDN) */
+@import url('https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack.min.css');
+
+/* ==========================================================================
+   2. BASE TYPOGRAPHY RESET
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-body);
+  letter-spacing: var(--tracking-wide);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+}
+
+/* ==========================================================================
+   3. HEADING STYLES
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-bold);
+  color: var(--text-primary);
+  margin: 0;
+
+  /* NO ITALICS IN BRUTALISM */
+  font-style: normal;
+}
+
+/* Display — Hero text, major callouts */
+.text-display {
+  font-family: var(--font-heading);
+  font-size: var(--text-display);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-tight);
+}
+
+/* H1 — Page titles */
+h1, .h1, .text-h1 {
+  font-size: var(--text-h1);
+  line-height: var(--leading-h1);
+  letter-spacing: var(--tracking-tight);
+}
+
+/* H2 — Section headers */
+h2, .h2, .text-h2 {
+  font-size: var(--text-h2);
+  line-height: var(--leading-h2);
+  letter-spacing: -0.01em;
+}
+
+/* H3 — Card titles, subsections */
+h3, .h3, .text-h3 {
+  font-size: var(--text-h3);
+  line-height: var(--leading-h3);
+  letter-spacing: -0.01em;
+}
+
+/* H4 — Small headings */
+h4, .h4, .text-h4 {
+  font-size: var(--text-h4);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-h4);
+  letter-spacing: var(--tracking-normal);
+}
+
+/* H5/H6 — Rarely used, map to label style */
+h5, .h5, h6, .h6 {
+  font-size: var(--text-label);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-label);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   4. BODY TEXT STYLES
+   ========================================================================== */
+
+/* Body — Standard body text */
+p, .text-body {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-body);
+  letter-spacing: var(--tracking-wide);
+  color: var(--text-primary);
+}
+
+/* Body Small — Secondary body text */
+.text-body-sm,
+small {
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-body);
+  letter-spacing: var(--tracking-wide);
+}
+
+/* Caption — Metadata, timestamps */
+.text-caption,
+figcaption {
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-caption);
+  letter-spacing: var(--tracking-wider);
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   5. LABEL & UI TEXT STYLES
+   ========================================================================== */
+
+/* Label — Buttons, nav items, form labels (UPPERCASE) */
+.text-label,
+label {
+  font-family: var(--font-heading);
+  font-size: var(--text-label);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-label);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   6. CODE & TECHNICAL TEXT
+   ========================================================================== */
+
+/* Inline Code */
+code {
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-caption);
+  letter-spacing: var(--tracking-normal);
+
+  padding: 2px 6px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-secondary);
+}
+
+/* Code Block */
+pre {
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-body);
+  letter-spacing: var(--tracking-normal);
+
+  padding: var(--space-2);
+  background-color: var(--bg-secondary);
+  border: var(--border-base) solid var(--border-primary);
+  overflow-x: auto;
+}
+
+pre code {
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+/* Keyboard Input */
+kbd {
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-bold);
+
+  padding: 2px 6px;
+  background-color: var(--bg-secondary);
+  border: var(--border-base) solid var(--border-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ==========================================================================
+   7. TEXT MODIFIERS
+   ========================================================================== */
+
+/* Strong/Bold — Use bold weight, NOT italics */
+strong,
+b,
+.text-bold {
+  font-weight: var(--weight-bold);
+}
+
+/* Emphasis — In brutalism, use color or weight, NOT italics */
+em,
+i {
+  font-style: normal; /* Override default italic */
+  color: var(--accent-primary);
+}
+
+/* Muted Text */
+.text-muted {
+  color: var(--text-muted);
+}
+
+/* Secondary Text */
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+/* Accent Text */
+.text-accent {
+  color: var(--accent-primary);
+}
+
+/* Success Text */
+.text-success {
+  color: var(--accent-success);
+}
+
+/* ==========================================================================
+   8. TEXT ALIGNMENT
+   ========================================================================== */
+
+/* LEFT ALIGN ONLY — Brutalism rejects centered "balance" */
+.text-left { text-align: left; }
+
+/* These exist but should be used sparingly */
+.text-center { text-align: center; }
+
+/* ==========================================================================
+   9. TEXT TRUNCATION
+   ========================================================================== */
+
+/* Single Line Truncate */
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Multi-line Clamp */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   10. LINKS
+   ========================================================================== */
+
+a,
+.link {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-decoration-thickness: var(--border-base);
+  text-underline-offset: 4px;
+
+  transition: color var(--transition-fast);
+}
+
+a:hover,
+.link:hover {
+  color: var(--accent-primary);
+}
+
+/* ==========================================================================
+   11. LISTS
+   ========================================================================== */
+
+ul, ol {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  padding-left: var(--space-3);
+}
+
+li {
+  margin-bottom: var(--space-1);
+}
+
+/* ==========================================================================
+   12. SELECTION STYLES
+   ========================================================================== */
+
+::selection {
+  background-color: var(--accent-primary);
+  color: var(--color-white);
+}
+
+::-moz-selection {
+  background-color: var(--accent-primary);
+  color: var(--color-white);
+}
+
+/* ==========================================================================
+   13. RESPONSIVE TYPOGRAPHY
+   ========================================================================== */
+
+/* Mobile adjustments */
+@media (max-width: 639px) {
+  .text-display {
+    font-size: 48px;
+  }
+
+  h1, .h1, .text-h1 {
+    font-size: 36px;
+  }
+
+  h2, .h2, .text-h2 {
+    font-size: 28px;
+  }
+
+  h3, .h3, .text-h3 {
+    font-size: 20px;
+  }
+}
+
+/* Large screens — slightly larger text */
+@media (min-width: 1280px) {
+  body {
+    font-size: 17px;
+  }
+
+  .text-display {
+    font-size: 80px;
+  }
+
+  h1, .h1, .text-h1 {
+    font-size: 56px;
+  }
+}

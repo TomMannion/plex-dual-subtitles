@@ -1,0 +1,65 @@
+/**
+ * BRUTALIST CARDS
+ * Hard-edged container components
+ */
+
+/* ==========================================================================
+   BASE CARD
+   ========================================================================== */
+
+.card-brutal {
+  background-color: var(--bg-elevated);
+  border: var(--border-base) solid var(--border-primary);
+  box-shadow: var(--shadow-base);
+}
+
+.card-brutal-elevated {
+  box-shadow: var(--shadow-lg);
+}
+
+.card-brutal-outline {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   INTERACTIVE CARDS
+   ========================================================================== */
+
+.card-brutal-interactive {
+  cursor: pointer;
+  transition: var(--transition-shadow);
+}
+
+.card-brutal-interactive:hover {
+  transform: translate(var(--translate-hover));
+  box-shadow: var(--shadow-hover);
+}
+
+.card-brutal-interactive:active {
+  transform: translate(var(--translate-active));
+  box-shadow: var(--shadow-active);
+}
+
+.card-brutal-selected {
+  border-color: var(--accent-primary);
+  box-shadow: 4px 4px 0 0 var(--accent-primary);
+}
+
+/* ==========================================================================
+   CARD SECTIONS
+   ========================================================================== */
+
+.card-brutal-header {
+  padding: var(--space-2) var(--space-3);
+  border-bottom: var(--border-base) solid var(--border-primary);
+}
+
+.card-brutal-body {
+  padding: var(--space-3);
+}
+
+.card-brutal-footer {
+  padding: var(--space-2) var(--space-3);
+  border-top: var(--border-base) solid var(--border-primary);
+}

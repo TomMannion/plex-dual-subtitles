@@ -1,0 +1,229 @@
+/**
+ * BRUTALIST NAVIGATION
+ * Header, nav links, and navigation components
+ */
+
+/* ==========================================================================
+   HEADER NAV
+   ========================================================================== */
+
+.nav-brutal-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: var(--space-2) var(--space-4);
+
+  background-color: var(--bg-primary);
+  border-bottom: var(--border-thick) solid var(--border-primary);
+}
+
+.nav-brutal-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+
+  font-family: var(--font-heading);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.nav-brutal-logo:hover {
+  color: var(--accent-primary);
+}
+
+/* Logo icon - always shown */
+.nav-brutal-logo-icon {
+  display: block;
+}
+
+/* Logo text - shown on desktop, hidden on mobile */
+.nav-brutal-logo-text {
+  display: inline;
+}
+
+.nav-brutal-items {
+  display: flex;
+  align-items: center;
+}
+
+/* ==========================================================================
+   NAV LINKS
+   ========================================================================== */
+
+.nav-brutal-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+
+  padding: var(--space-1) var(--space-2);
+
+  font-family: var(--font-heading);
+  font-size: var(--text-label);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  text-decoration: none;
+
+  color: var(--text-primary);
+  background-color: transparent;
+  border: var(--border-base) solid transparent;
+
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.nav-brutal-link:hover {
+  background-color: var(--bg-secondary);
+}
+
+.nav-brutal-link-active {
+  border-color: var(--border-primary);
+  background-color: var(--bg-secondary);
+}
+
+.nav-brutal-link-icon {
+  display: inline-flex;
+  margin-right: 4px;
+}
+
+/* ==========================================================================
+   THEME TOGGLE
+   ========================================================================== */
+
+.nav-brutal-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  background: none;
+  border: var(--border-base) solid var(--border-primary);
+  cursor: pointer;
+
+  color: var(--text-primary);
+  transition: background-color var(--transition-fast);
+}
+
+.nav-brutal-theme-toggle:hover {
+  background-color: var(--bg-secondary);
+}
+
+/* ==========================================================================
+   VIEW TOGGLE
+   ========================================================================== */
+
+.view-toggle {
+  display: flex;
+  border: var(--border-sm) solid var(--border-primary);
+  background: var(--bg-secondary);
+}
+
+.view-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-1);
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-colors);
+}
+
+.view-toggle-btn:hover {
+  color: var(--text-primary);
+}
+
+.view-toggle-btn.active {
+  background: var(--accent-primary);
+  color: var(--accent-primary-text);
+}
+
+/* ==========================================================================
+   MOBILE NAVIGATION
+   ========================================================================== */
+
+@media (max-width: 639px) {
+  .nav-brutal-header {
+    padding: var(--space-1) var(--space-2);
+  }
+
+  /* Show logo icon, hide text on mobile */
+  .nav-brutal-logo-icon {
+    display: block;
+  }
+
+  .nav-brutal-logo-text {
+    display: none;
+  }
+
+  /* Nav items collapse to icons only */
+  .nav-brutal-items {
+    flex: 1;
+    justify-content: center;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .nav-brutal-items::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-brutal-link {
+    padding: var(--space-1);
+    gap: 0;
+  }
+
+  /* Hide text labels, show only icons */
+  .nav-brutal-link-text {
+    display: none;
+  }
+
+  .nav-brutal-link-icon {
+    margin-right: 0;
+  }
+
+  /* Expanded state - show labels */
+  .nav-brutal-link.expanded .nav-brutal-link-text,
+  .nav-brutal-items.expanded .nav-brutal-link-text {
+    display: inline;
+    margin-left: 4px;
+  }
+
+  /* Theme toggle smaller on mobile */
+  .nav-brutal-theme-toggle {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
+  }
+
+  /* Actions tighter spacing */
+  .nav-brutal-actions {
+    gap: var(--space-1);
+  }
+
+  /* Hide username on mobile */
+  .nav-username {
+    display: none;
+  }
+}
+
+/* Tablet - show truncated labels */
+@media (min-width: 640px) and (max-width: 767px) {
+  .nav-brutal-link {
+    padding: var(--space-1) var(--space-1);
+    font-size: 10px;
+  }
+}

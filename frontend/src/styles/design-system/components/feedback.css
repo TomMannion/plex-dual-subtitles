@@ -1,0 +1,224 @@
+/**
+ * BRUTALIST FEEDBACK COMPONENTS
+ * Badges, alerts, progress, spinners, status indicators
+ */
+
+/* ==========================================================================
+   BADGES
+   ========================================================================== */
+
+.badge-brutal {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  padding: 4px var(--space-1);
+
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+
+  border: var(--border-base) solid var(--border-primary);
+}
+
+.badge-brutal-sm {
+  padding: 2px 6px;
+  font-size: 9px;
+}
+
+.badge-brutal-default {
+  color: var(--text-primary);
+  background-color: var(--bg-secondary);
+}
+
+.badge-brutal-outline {
+  background-color: transparent;
+}
+
+/* ==========================================================================
+   TAGS
+   ========================================================================== */
+
+.tag-brutal {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+
+  padding: var(--space-1) var(--space-2);
+
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+
+  color: var(--text-primary);
+  background-color: var(--bg-secondary);
+  border: var(--border-base) solid var(--border-primary);
+
+  cursor: default;
+}
+
+.tag-brutal-selected {
+  background-color: var(--accent-primary);
+  color: var(--accent-primary-text);
+  border-color: var(--accent-primary);
+}
+
+/* ==========================================================================
+   STATUS INDICATORS
+   ========================================================================== */
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border: var(--border-base) solid var(--border-primary);
+}
+
+.status-dot-success { background-color: var(--accent-success); }
+.status-dot-error { background-color: var(--accent-primary); }
+.status-dot-pending { background-color: var(--color-gray-400); }
+
+/* ==========================================================================
+   ALERTS
+   ========================================================================== */
+
+.alert {
+  padding: var(--space-2) var(--space-3);
+  border: var(--border-base) solid var(--border-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.alert-info {
+  background-color: var(--bg-secondary);
+}
+
+.alert-success {
+  background-color: var(--bg-secondary);
+  border-color: var(--accent-success);
+}
+
+.alert-error {
+  background-color: var(--bg-secondary);
+  border-color: var(--accent-primary);
+}
+
+.alert-warning {
+  background-color: var(--bg-secondary);
+  border-color: var(--color-gray-400);
+}
+
+/* ==========================================================================
+   PROGRESS
+   ========================================================================== */
+
+.progress-brutal {
+  position: relative;
+  width: 100%;
+  height: 24px;
+  background-color: var(--bg-secondary);
+  border: var(--border-base) solid var(--border-primary);
+  overflow: hidden;
+}
+
+.progress-brutal-fill {
+  height: 100%;
+  background-color: var(--border-primary);
+  transition: width var(--transition-base);
+}
+
+.progress-brutal-accent .progress-brutal-fill {
+  background-color: var(--accent-primary);
+}
+
+.progress-brutal-success .progress-brutal-fill {
+  background-color: var(--accent-success);
+}
+
+.progress-brutal-value {
+  position: absolute;
+  right: var(--space-1);
+  top: 50%;
+  transform: translateY(-50%);
+
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-bold);
+}
+
+/* Small progress variant */
+.progress-brutal-sm {
+  height: 16px;
+}
+
+.progress-brutal-sm .progress-brutal-value {
+  font-size: 9px;
+}
+
+/* ==========================================================================
+   SPINNER
+   ========================================================================== */
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: var(--border-thick) solid var(--border-secondary);
+  border-top-color: var(--border-primary);
+  animation: spin 0.8s linear infinite;
+}
+
+.spinner-sm {
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+}
+
+.spinner-lg {
+  width: 32px;
+  height: 32px;
+  border-width: 4px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   BRUTAL SPINNER (Block Character Style)
+   ========================================================================== */
+
+.spinner-brutal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+}
+
+.spinner-brutal-sm {
+  font-size: var(--text-caption);
+}
+
+.spinner-brutal-md {
+  font-size: var(--text-body);
+}
+
+.spinner-brutal-lg {
+  font-size: var(--text-body);
+}
+
+.spinner-brutal-blocks {
+  display: inline-block;
+  animation: brutal-pulse 1.2s ease-in-out infinite;
+  letter-spacing: 0.1em;
+}
+
+@keyframes brutal-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.95);
+  }
+}

@@ -1,0 +1,8 @@
+/**
+ * PLEX DUALSUB MANAGER — MAIN STYLESHEET
+ *
+ * Imports the brutalist design system.
+ * All styling flows from the design system tokens and components.
+ */
+
+@import './styles/design-system/index.css';

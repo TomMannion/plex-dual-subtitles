@@ -1,0 +1,118 @@
+/**
+ * BRUTALIST TABS
+ * Tab navigation styles
+ */
+
+/* ==========================================================================
+   TABS CONTAINER
+   ========================================================================== */
+
+.tabs-brutal {
+  width: 100%;
+}
+
+/* ==========================================================================
+   TAB LIST
+   ========================================================================== */
+
+.tabs-brutal-list {
+  display: flex;
+  gap: 0;
+  border-bottom: var(--border-base) solid var(--border-primary);
+}
+
+/* ==========================================================================
+   INDIVIDUAL TAB
+   ========================================================================== */
+
+.tabs-brutal-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+
+  padding: var(--space-2) var(--space-3);
+
+  font-family: var(--font-heading);
+  font-size: var(--text-label);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+
+  color: var(--text-muted);
+  background-color: transparent;
+  border: var(--border-base) solid transparent;
+  border-bottom: none;
+
+  cursor: pointer;
+  transition: color var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
+
+  /* Align with border */
+  margin-bottom: -2px;
+}
+
+.tabs-brutal-tab:hover:not(:disabled) {
+  color: var(--text-primary);
+  background-color: var(--bg-secondary);
+}
+
+.tabs-brutal-tab-active {
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  border-color: var(--border-primary);
+  border-bottom-color: var(--bg-primary);
+}
+
+.tabs-brutal-tab-active:hover:not(:disabled) {
+  background-color: var(--bg-primary);
+}
+
+.tabs-brutal-tab-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tabs-brutal-tab:focus-visible {
+  outline: 3px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   TAB PANEL
+   ========================================================================== */
+
+.tabs-brutal-panel {
+  padding: var(--space-4) 0;
+}
+
+/* ==========================================================================
+   VARIANT: PILLS (ALTERNATIVE STYLE)
+   ========================================================================== */
+
+.tabs-brutal-pills .tabs-brutal-list {
+  gap: var(--space-1);
+  border-bottom: none;
+}
+
+.tabs-brutal-pills .tabs-brutal-tab {
+  border: var(--border-base) solid var(--border-primary);
+  margin-bottom: 0;
+}
+
+.tabs-brutal-pills .tabs-brutal-tab-active {
+  background-color: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary-text);
+}
+
+/* ==========================================================================
+   VARIANT: FULLWIDTH
+   ========================================================================== */
+
+.tabs-brutal-fullwidth .tabs-brutal-list {
+  width: 100%;
+}
+
+.tabs-brutal-fullwidth .tabs-brutal-tab {
+  flex: 1;
+}

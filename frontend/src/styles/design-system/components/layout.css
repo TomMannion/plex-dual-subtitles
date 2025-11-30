@@ -1,0 +1,296 @@
+/**
+ * BRUTALIST LAYOUT COMPONENTS
+ * Page layouts, containers, sections
+ */
+
+/* ==========================================================================
+   APP LAYOUT
+   ========================================================================== */
+
+.app-main {
+  min-height: calc(100vh - 60px);
+}
+
+/* ==========================================================================
+   AUTH LAYOUT
+   ========================================================================== */
+
+.auth-layout {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 480px;
+  padding: var(--space-4);
+}
+
+.auth-header {
+  margin-bottom: var(--space-4);
+}
+
+.auth-title {
+  font-size: var(--text-xl) !important;
+  font-weight: var(--weight-black) !important;
+  letter-spacing: var(--tracking-widest);
+}
+
+.login-button {
+  font-size: var(--text-label) !important;
+  min-height: 56px !important;
+}
+
+.login-avatar {
+  width: 48px;
+  height: 48px;
+  border: var(--border-base) solid var(--border-primary);
+  object-fit: cover;
+}
+
+.login-success {
+  border-color: var(--accent-success) !important;
+}
+
+/* ==========================================================================
+   DETAIL PAGE LAYOUT
+   ========================================================================== */
+
+.show-detail,
+.movie-detail {
+  position: relative;
+}
+
+.show-detail-bg,
+.movie-detail-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.show-detail-bg::before,
+.movie-detail-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--bg-primary) 0%,
+    var(--gradient-overlay-medium) 50%,
+    var(--bg-primary) 100%
+  );
+}
+
+.show-detail-content,
+.movie-detail-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Ensure cards in detail pages have solid backgrounds for readability */
+.show-detail-content .card-brutal-outline,
+.movie-detail-content .card-brutal-outline {
+  background-color: var(--bg-primary);
+}
+
+/* ==========================================================================
+   BULK CTA
+   ========================================================================== */
+
+.bulk-cta {
+  border-color: var(--accent-success) !important;
+  cursor: pointer;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.bulk-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.bulk-cta-icon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-success-bg);
+  border: var(--border-sm) solid var(--accent-success);
+  color: var(--accent-success);
+}
+
+.bulk-cta-arrow {
+  color: var(--accent-success);
+  transition: transform var(--transition-base);
+}
+
+.bulk-cta:hover .bulk-cta-arrow {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   SUBTITLE COMPONENTS
+   ========================================================================== */
+
+.subtitle-list-scroll {
+  overflow-y: auto;
+  min-height: 0; /* Important for flex scroll containers */
+}
+
+/* ==========================================================================
+   SUBTITLE MANAGER EQUAL HEIGHT COLUMNS
+   ========================================================================== */
+
+/* Wrapper for equal height columns */
+.subtitle-manager-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  align-items: start;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+/* Left column - height determined by content */
+.subtitle-manager-col .stack-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Right column - when max-height is set via JS, contain overflow */
+.subtitle-manager-col {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Right column card structure */
+.subtitle-manager-col > .card-brutal {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* The scrollable content area */
+.subtitle-manager-col > .card-brutal .subtitle-list-scroll {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+/* Card header should not shrink */
+.subtitle-manager-col > .card-brutal > .card-header {
+  flex-shrink: 0;
+}
+
+.subtitle-item {
+  transition: border-color var(--transition-base);
+}
+
+.subtitle-item:hover {
+  border-color: var(--accent-primary);
+}
+
+.delete-btn {
+  color: var(--text-muted);
+  border: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+  padding: var(--space-1) !important;
+  min-width: auto !important;
+  min-height: auto !important;
+}
+
+.delete-btn:hover {
+  color: var(--accent-primary);
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 639px) {
+  /* App layout adjustments */
+  .app-main {
+    min-height: calc(100vh - 52px); /* Smaller nav on mobile */
+  }
+
+  /* Auth layout */
+  .auth-container {
+    padding: var(--space-3);
+  }
+
+  .auth-title {
+    font-size: var(--text-lg) !important;
+  }
+
+  /* Detail page background - performance optimization */
+  .show-detail-bg,
+  .movie-detail-bg {
+    /* Use a simpler gradient on mobile */
+    background-attachment: scroll;
+  }
+
+  .show-detail-bg::before,
+  .movie-detail-bg::before {
+    background: linear-gradient(
+      to bottom,
+      var(--bg-primary) 0%,
+      var(--gradient-overlay-strong) 30%,
+      var(--bg-primary) 100%
+    );
+  }
+
+  /* Bulk CTA responsive */
+  .bulk-cta-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  /* Subtitle list more compact and no fixed height on mobile */
+  .subtitle-list-scroll {
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  /* Detail page content containment */
+  .show-detail-content,
+  .movie-detail-content,
+  .episode-detail-content {
+    width: 100%;
+    overflow-x: hidden;
+    padding-left: var(--space-2);
+    padding-right: var(--space-2);
+  }
+
+  /* Prevent subtitle item overflow */
+  .subtitle-item {
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .subtitle-item .min-w-0 {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .subtitle-item .truncate {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

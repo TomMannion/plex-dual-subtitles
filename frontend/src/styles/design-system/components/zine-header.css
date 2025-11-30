@@ -1,0 +1,411 @@
+/**
+ * ZINE-STYLE HEADER
+ * Brutalist magazine/zine inspired header component
+ */
+
+/* ==========================================================================
+   BASE HEADER
+   ========================================================================== */
+
+.zine-header {
+  position: relative;
+  min-height: 220px;
+  overflow: visible;
+}
+
+.zine-header-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   GIANT OUTLINED TITLE
+   ========================================================================== */
+
+.zine-title {
+  font-family: var(--font-heading);
+  font-size: clamp(3.5rem, 12vw, 7rem);
+  font-weight: var(--weight-black);
+  letter-spacing: -0.04em;
+  line-height: 0.85;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--text-primary);
+  text-stroke: 2px var(--text-primary);
+  margin-bottom: var(--space-2);
+  position: relative;
+  z-index: 2;
+  /* Prevent overlap with stamps on right side */
+  max-width: calc(100% - 200px);
+}
+
+/* ==========================================================================
+   OFFSET SUBTITLE
+   ========================================================================== */
+
+.zine-subtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: var(--weight-bold);
+  color: var(--bg-primary);
+  background: var(--text-primary);
+  display: inline-block;
+  padding: var(--space-1) var(--space-3);
+  margin-left: var(--space-4);
+  margin-top: calc(var(--space-1) * -1);
+  position: relative;
+  z-index: 3;
+  box-shadow: 4px 4px 0 var(--accent-primary);
+}
+
+/* ==========================================================================
+   STAT STAMPS
+   ========================================================================== */
+
+.zine-stamps {
+  position: absolute;
+  top: var(--space-3);
+  right: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  z-index: 4;
+}
+
+.zine-stamp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-2) var(--space-3);
+  border: 3px solid var(--border-primary);
+  background: var(--bg-primary);
+  position: relative;
+  z-index: 5;
+}
+
+/* First stamp - primary text color border */
+.zine-stamp-1 {
+  border-color: var(--text-primary);
+}
+
+/* Second stamp - red filled */
+.zine-stamp-2 {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+}
+
+.zine-stamp-2 .zine-stamp-number,
+.zine-stamp-2 .zine-stamp-label {
+  color: var(--accent-primary-text);
+}
+
+.zine-stamp-number {
+  font-family: var(--font-heading);
+  font-size: var(--text-h2);
+  font-weight: var(--weight-black);
+  line-height: 1;
+  color: var(--text-primary);
+}
+
+.zine-stamp-label {
+  font-family: var(--font-heading);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-widest);
+  color: var(--text-muted);
+  margin-top: var(--space-1);
+}
+
+/* ==========================================================================
+   DECORATIVE PATTERNS
+   ========================================================================== */
+
+.zine-pattern {
+  position: absolute;
+  pointer-events: none;
+}
+
+/* Dots pattern - behind end of title */
+.zine-pattern-dots {
+  width: 180px;
+  height: 140px;
+  top: 15px;
+  left: min(calc(100% - 400px), 450px);
+  background-image: radial-gradient(var(--text-primary) 2px, transparent 2px);
+  background-size: 18px 18px;
+  transform: rotate(-8deg);
+  opacity: 0.3;
+  z-index: 0;
+}
+
+/* Lines pattern - behind subtitle area */
+.zine-pattern-lines {
+  width: 200px;
+  height: 80px;
+  top: 70px;
+  left: 280px;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 6px,
+    var(--text-primary) 6px,
+    var(--text-primary) 8px
+  );
+  transform: rotate(-5deg);
+  opacity: 0.2;
+  z-index: 0;
+}
+
+/* Hash pattern - right side accent, BEHIND stamps */
+.zine-pattern-hash {
+  width: 140px;
+  height: 140px;
+  top: 50px;
+  right: 20px;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 10px,
+      var(--accent-primary) 10px,
+      var(--accent-primary) 12px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 10px,
+      var(--accent-primary) 10px,
+      var(--accent-primary) 12px
+    );
+  transform: rotate(15deg);
+  opacity: 0.6;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   HEADER CONTROLS
+   ========================================================================== */
+
+.zine-jobs {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  max-width: 320px;
+}
+
+.zine-controls {
+  position: absolute;
+  bottom: var(--space-4);
+  right: var(--space-4);
+}
+
+.zine-controls-bar {
+  border-bottom: 2px solid var(--border-primary);
+  background: transparent;
+}
+
+/* ==========================================================================
+   DETAIL PAGE VARIANT
+   ========================================================================== */
+
+.zine-header-detail {
+  min-height: 180px;
+}
+
+.zine-title-detail {
+  font-size: clamp(2rem, 8vw, 4rem);
+  margin-top: var(--space-3);
+}
+
+.zine-back-link {
+  display: inline-block;
+  margin-bottom: var(--space-2);
+}
+
+.zine-meta {
+  margin-top: var(--space-3);
+  margin-left: var(--space-4);
+}
+
+.zine-stamps-detail {
+  top: var(--space-4);
+}
+
+.stat-card-mini {
+  min-width: 120px;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .zine-header {
+    min-height: auto;
+  }
+
+  .zine-title {
+    -webkit-text-stroke: 2px var(--text-primary);
+    text-stroke: 2px var(--text-primary);
+  }
+
+  .zine-subtitle {
+    margin-left: var(--space-4);
+  }
+
+  .zine-pattern {
+    display: none;
+  }
+
+  .zine-jobs {
+    position: static;
+    max-width: 100%;
+    margin-top: var(--space-4);
+  }
+}
+
+/* Mobile - 375px minimum */
+@media (max-width: 639px) {
+  .zine-header {
+    min-height: auto;
+    padding: var(--space-3) var(--space-2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Harsh cut - diagonal slice across corner */
+  .zine-header::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -40px;
+    width: 120px;
+    height: 80px;
+    background: var(--accent-primary);
+    transform: rotate(-25deg);
+    z-index: 0;
+  }
+
+  /* Random thick bar */
+  .zine-header::after {
+    content: '';
+    position: absolute;
+    bottom: 20%;
+    left: -10px;
+    width: 35%;
+    height: 4px;
+    background: var(--text-primary);
+    transform: rotate(-3deg);
+    opacity: 0.4;
+  }
+
+  .zine-header-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Title - make it punch harder */
+  .zine-title {
+    font-size: clamp(2.2rem, 12vw, 3.5rem);
+    -webkit-text-stroke: 2px var(--text-primary);
+    text-stroke: 2px var(--text-primary);
+    max-width: 100%;
+    margin-bottom: var(--space-1);
+    transform: rotate(-1deg);
+    margin-left: -4px;
+  }
+
+  /* Subtitle - offset awkwardly */
+  .zine-subtitle {
+    margin-left: var(--space-4);
+    margin-top: calc(var(--space-1) * -1);
+    padding: var(--space-1) var(--space-2);
+    font-size: var(--text-body-sm);
+    transform: rotate(0.5deg);
+    align-self: flex-start;
+  }
+
+  /* Stamps - scatter them */
+  .zine-stamps {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-2);
+    margin-left: var(--space-1);
+  }
+
+  .zine-stamp {
+    padding: var(--space-1) var(--space-2);
+    border-width: 2px;
+    flex: 0 0 auto;
+  }
+
+  /* Aggressive stamp rotations */
+  .zine-stamp-1 {
+    transform: rotate(-4deg);
+    margin-top: 4px;
+  }
+
+  .zine-stamp-2 {
+    transform: rotate(3deg);
+    margin-top: -2px;
+  }
+
+  .zine-stamp-number {
+    font-size: var(--text-h4);
+  }
+
+  .zine-stamp-label {
+    font-size: 10px;
+    margin-top: 2px;
+  }
+
+  /* Kill the predictable patterns */
+  .zine-pattern-dots,
+  .zine-pattern-lines,
+  .zine-pattern-hash {
+    display: none;
+  }
+
+  /* Detail page variant */
+  .zine-header-detail {
+    min-height: auto;
+  }
+
+  .zine-title-detail {
+    font-size: clamp(1.5rem, 8vw, 2.5rem);
+    margin-top: var(--space-2);
+  }
+
+  .zine-meta {
+    margin-top: var(--space-2);
+    margin-left: 0;
+  }
+
+  .zine-stamps-detail {
+    position: static;
+    margin-top: var(--space-2);
+  }
+
+  .stat-card-mini {
+    min-width: auto;
+    flex: 1;
+  }
+
+  /* Jobs widget inline on mobile */
+  .zine-jobs {
+    position: static;
+    max-width: 100%;
+    margin-top: var(--space-3);
+  }
+
+  /* Controls positioning */
+  .zine-controls {
+    position: static;
+    margin-top: var(--space-3);
+  }
+}

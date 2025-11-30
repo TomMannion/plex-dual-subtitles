@@ -1,0 +1,118 @@
+/**
+ * PLEX DUALSUB MANAGER — 20×20 BRUTALIST GRID SYSTEM
+ *
+ * Controlled Chaos. Intentional Asymmetry. Structural Honesty.
+ *
+ * The 20-column grid enables unusual, visually tense layouts
+ * while maintaining underlying order. Elements can span odd
+ * column counts (7, 11, 13) creating intentional "wrongness."
+ */
+
+/* ==========================================================================
+   1. GRID CONTAINER
+   ========================================================================== */
+
+.grid-brutal {
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  gap: 0; /* Borders create separation, not gaps */
+  width: 100%;
+  max-width: var(--grid-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--grid-padding);
+  padding-right: var(--grid-padding);
+}
+
+/* Grid with gap (optional variant) */
+.grid-brutal-gap {
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  gap: var(--space-2);
+  width: 100%;
+  max-width: var(--grid-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--grid-padding);
+  padding-right: var(--grid-padding);
+}
+
+/* ==========================================================================
+   2. COLUMN SPAN UTILITIES
+   ========================================================================== */
+
+.col-span-10 { grid-column: span 10; }
+.col-span-full { grid-column: 1 / -1; }
+
+/* ==========================================================================
+   6. RESPONSIVE GRID BEHAVIOR
+   ========================================================================== */
+
+/* Mobile (< 640px): Single column */
+@media (max-width: 639px) {
+  .grid-brutal,
+  .grid-brutal-gap {
+    grid-template-columns: 1fr;
+    padding-left: var(--space-2);
+    padding-right: var(--space-2);
+  }
+
+  /* All span classes collapse to full width */
+  [class*="col-span-"],
+  [class*="col-start-"],
+  [class*="col-end-"] {
+    grid-column: 1 / -1 !important;
+  }
+}
+
+/* Small Tablet (640px - 767px): 10 columns */
+@media (min-width: 640px) and (max-width: 767px) {
+  .grid-brutal,
+  .grid-brutal-gap {
+    grid-template-columns: repeat(10, 1fr);
+  }
+
+  /* Halve spans */
+  .col-span-10 { grid-column: span 5; }
+}
+
+/* Tablet (768px - 1023px): 10 columns */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .grid-brutal,
+  .grid-brutal-gap {
+    grid-template-columns: repeat(10, 1fr);
+  }
+}
+
+/* Desktop (1024px+): Full 20 columns */
+@media (min-width: 1024px) {
+  .grid-brutal,
+  .grid-brutal-gap {
+    grid-template-columns: repeat(20, 1fr);
+  }
+}
+
+/* ==========================================================================
+   7. CONTAINER UTILITIES
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--grid-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--grid-padding);
+  padding-right: var(--grid-padding);
+}
+
+.container-sm {
+  max-width: 960px;
+}
+
+.container-lg {
+  max-width: 1920px;
+}
+
+.container-full {
+  max-width: none;
+}

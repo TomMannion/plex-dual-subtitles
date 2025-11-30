@@ -1,0 +1,177 @@
+/**
+ * BRUTALIST MODALS
+ * Dialog and overlay components
+ */
+
+/* ==========================================================================
+   OVERLAY
+   ========================================================================== */
+
+.modal-brutal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  background-color: var(--overlay-bg);
+  backdrop-filter: blur(2px);
+}
+
+/* ==========================================================================
+   MODAL CONTAINER
+   ========================================================================== */
+
+.modal-brutal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: calc(100vh - var(--space-8));
+  background-color: var(--bg-elevated);
+  border: var(--border-thick) solid var(--border-primary);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   SIZE VARIANTS
+   ========================================================================== */
+
+.modal-brutal-sm { max-width: 400px; }
+.modal-brutal-md { max-width: 560px; }
+.modal-brutal-lg { max-width: 720px; }
+.modal-brutal-xl { max-width: 960px; }
+.modal-brutal-full {
+  max-width: calc(100vw - var(--space-8));
+  max-height: calc(100vh - var(--space-8));
+}
+
+/* ==========================================================================
+   MODAL SECTIONS
+   ========================================================================== */
+
+.modal-brutal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: var(--border-base) solid var(--border-primary);
+  background-color: var(--bg-secondary);
+}
+
+.modal-brutal-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.modal-brutal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
+  font-weight: var(--weight-bold);
+  color: var(--text-primary);
+  background: transparent;
+  border: var(--border-base) solid var(--border-primary);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.modal-brutal-close:hover {
+  background-color: var(--accent-primary);
+  color: var(--accent-primary-text);
+}
+
+.modal-brutal-body {
+  flex: 1;
+  padding: var(--space-4);
+  overflow-y: auto;
+}
+
+/* Alias for modal-brutal-body - used by wizard */
+.modal-brutal-content {
+  flex: 1;
+  padding: 0;
+  overflow-y: auto;
+  min-height: 0; /* Important for flex children to scroll */
+}
+
+.modal-brutal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-top: var(--border-base) solid var(--border-primary);
+  background-color: var(--bg-secondary);
+}
+
+/* ==========================================================================
+   DARK MODE ENHANCEMENTS — More striking brutalist aesthetic
+   ========================================================================== */
+
+[data-theme="dark"] .modal-brutal {
+  /* Pure black background for maximum contrast */
+  background-color: var(--color-black);
+  /* Thicker, more prominent border */
+  border-width: var(--border-brutal);
+  /* Accent-colored shadow for extra pop */
+  box-shadow: 8px 8px 0 0 var(--accent-primary);
+}
+
+[data-theme="dark"] .modal-brutal-header {
+  background-color: var(--color-black);
+  border-bottom-width: var(--border-thick);
+}
+
+[data-theme="dark"] .modal-brutal-footer {
+  background-color: var(--color-black);
+  border-top-width: var(--border-thick);
+}
+
+[data-theme="dark"] .modal-brutal-content {
+  background-color: var(--color-gray-900);
+}
+
+/* Cards inside dark mode modals need more contrast */
+[data-theme="dark"] .modal-brutal .card-brutal {
+  background-color: var(--color-black);
+  border-width: var(--border-base);
+  border-color: var(--color-white);
+}
+
+/* Step indicator in dark mode */
+[data-theme="dark"] .modal-brutal [style*="border-color: var(--accent-primary)"] {
+  box-shadow: 0 0 0 2px var(--accent-primary);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 640px) {
+  .modal-brutal-overlay {
+    padding: var(--space-2);
+  }
+
+  .modal-brutal {
+    max-height: calc(100vh - var(--space-4));
+  }
+
+  .modal-brutal-sm,
+  .modal-brutal-md,
+  .modal-brutal-lg,
+  .modal-brutal-xl {
+    max-width: 100%;
+  }
+}

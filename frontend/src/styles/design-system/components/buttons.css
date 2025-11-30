@@ -1,0 +1,185 @@
+/**
+ * BRUTALIST BUTTONS
+ * Hard-edged, unapologetic button styles
+ */
+
+/* ==========================================================================
+   BASE BUTTON
+   ========================================================================== */
+
+.btn-brutal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+
+  padding: var(--space-1) var(--space-3);
+  min-height: 44px;
+
+  font-family: var(--font-heading);
+  font-size: var(--text-label);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-label);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  border: var(--border-base) solid var(--border-primary);
+  border-radius: var(--radius-none);
+
+  box-shadow: var(--shadow-base);
+
+  cursor: pointer;
+  transition: var(--transition-shadow);
+}
+
+.btn-brutal:hover:not(:disabled) {
+  transform: translate(var(--translate-hover));
+  box-shadow: var(--shadow-hover);
+}
+
+.btn-brutal:active:not(:disabled) {
+  transform: translate(var(--translate-active));
+  box-shadow: var(--shadow-active);
+}
+
+.btn-brutal:focus-visible {
+  outline: 3px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+.btn-brutal-disabled,
+.btn-brutal:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+/* ==========================================================================
+   BUTTON VARIANTS
+   ========================================================================== */
+
+.btn-brutal-primary {
+  color: var(--accent-primary-text);
+  background-color: var(--accent-primary);
+  border-color: var(--border-primary);
+  box-shadow: var(--shadow-base);
+}
+
+.btn-brutal-primary:hover:not(:disabled) {
+  background-color: var(--accent-primary-hover);
+}
+
+.btn-brutal-secondary {
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+}
+
+.btn-brutal-ghost {
+  background-color: transparent;
+  box-shadow: none;
+  border-color: transparent;
+}
+
+.btn-brutal-ghost:hover:not(:disabled) {
+  background-color: var(--bg-secondary);
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-brutal-danger {
+  color: var(--accent-primary-text);
+  background-color: var(--accent-primary);
+  border-color: var(--border-primary);
+}
+
+/* ==========================================================================
+   BUTTON SIZES
+   ========================================================================== */
+
+.btn-brutal-sm {
+  padding: 4px var(--space-2);
+  min-height: 32px;
+  font-size: 10px;
+}
+
+.btn-brutal-lg {
+  padding: var(--space-2) var(--space-4);
+  min-height: 52px;
+  font-size: var(--text-body-sm);
+}
+
+/* ==========================================================================
+   ICON BUTTONS
+   ========================================================================== */
+
+.btn-brutal-icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-icon {
+  padding: var(--space-1);
+  min-height: auto;
+  aspect-ratio: 1;
+}
+
+.btn-icon-sm { width: 32px; height: 32px; }
+.btn-icon-md { width: 44px; height: 44px; }
+.btn-icon-lg { width: 52px; height: 52px; }
+
+/* ==========================================================================
+   BUTTON STATES
+   ========================================================================== */
+
+.btn-brutal-loading {
+  animation: brutal-blink 0.8s infinite;
+}
+
+@keyframes brutal-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Back button utility */
+.back-btn {
+  min-width: auto !important;
+  padding: var(--space-2) !important;
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 639px) {
+  /* Ensure all buttons meet touch target requirements */
+  .btn-brutal {
+    min-height: 44px;
+    padding: var(--space-1) var(--space-2);
+  }
+
+  /* Small buttons get slightly larger on mobile for better touch */
+  .btn-brutal-sm {
+    min-height: 36px;
+    padding: 6px var(--space-2);
+  }
+
+  /* Full width button variant for mobile */
+  .btn-brutal.mobile-full-width {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Reduce shadow complexity on mobile for performance */
+  .btn-brutal {
+    box-shadow: 2px 2px 0 0 var(--shadow-color);
+  }
+
+  .btn-brutal:hover:not(:disabled) {
+    box-shadow: 3px 3px 0 0 var(--shadow-color);
+  }
+}

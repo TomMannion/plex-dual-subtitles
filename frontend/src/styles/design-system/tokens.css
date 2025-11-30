@@ -1,0 +1,341 @@
+/**
+ * PLEX DUALSUB MANAGER — BRUTALIST DESIGN TOKENS
+ *
+ * Raw. Functional. Unapologetic.
+ *
+ * These CSS custom properties form the foundation of the design system.
+ * All components should reference these tokens rather than hard-coded values.
+ */
+
+/* ==========================================================================
+   1. COLOR TOKENS — MONOCHROME PALETTE
+   ========================================================================== */
+
+:root {
+  /* Pure Monochrome */
+  --color-black: #000000;
+  --color-gray-900: #1A1A1A;
+  --color-gray-800: #2D2D2D;
+  --color-gray-700: #404040;
+  --color-gray-600: #595959;
+  --color-gray-500: #737373;
+  --color-gray-400: #8C8C8C;
+  --color-gray-300: #A6A6A6;
+  --color-gray-200: #BFBFBF;
+  --color-gray-100: #D9D9D9;
+  --color-gray-50: #F2F2F2;
+  --color-white: #FFFFFF;
+
+  /* Accent Colors — Semantic Only */
+  --color-lilac: #9B7EDE;
+  --color-lilac-dark: #7B5BBE;
+  --color-lilac-light: #B8A4E8;
+
+  --color-neon: #CCFF00;
+  --color-neon-dark: #A3CC00;
+  --color-neon-light: #E0FF66;
+}
+
+/* ==========================================================================
+   2. SEMANTIC COLOR TOKENS — LIGHT MODE (DEFAULT)
+   ========================================================================== */
+
+:root,
+[data-theme="light"] {
+  /* Backgrounds */
+  --bg-primary: var(--color-white);
+  --bg-secondary: var(--color-gray-50);
+  --bg-elevated: var(--color-white);
+  --bg-inverse: var(--color-black);
+
+  /* Text */
+  --text-primary: var(--color-black);
+  --text-secondary: var(--color-gray-600);
+  --text-muted: var(--color-gray-500);
+  --text-inverse: var(--color-white);
+
+  /* Borders */
+  --border-primary: var(--color-black);
+  --border-secondary: var(--color-gray-300);
+
+  /* Accents */
+  --accent-primary: var(--color-neon);
+  --accent-primary-hover: var(--color-neon-dark);
+  --accent-primary-text: var(--color-black);
+  --accent-success: var(--color-lilac);
+  --accent-success-hover: var(--color-lilac-dark);
+  --accent-success-text: var(--color-white);
+
+  /* Shadows (color component) */
+  --shadow-color: var(--color-black);
+
+  /* Overlay backgrounds */
+  --overlay-bg: rgba(0, 0, 0, 0.85);
+  --overlay-bg-light: rgba(0, 0, 0, 0.6);
+
+  /* Gradient overlays (for hero sections, media cards) - white wash in light mode */
+  --gradient-overlay-strong: rgba(255, 255, 255, 0.95);
+  --gradient-overlay-medium: rgba(255, 255, 255, 0.85);
+  --gradient-overlay-light: rgba(255, 255, 255, 0.6);
+  --gradient-overlay-none: rgba(255, 255, 255, 0);
+
+  /* Accent hover backgrounds */
+  --accent-hover-bg: rgba(139, 0, 0, 0.1);
+  --accent-hover-bg-strong: rgba(139, 0, 0, 0.2);
+  --accent-success-bg: rgba(155, 126, 222, 0.2);
+}
+
+/* ==========================================================================
+   3. SEMANTIC COLOR TOKENS — DARK MODE
+   ========================================================================== */
+
+[data-theme="dark"] {
+  /* Backgrounds */
+  --bg-primary: var(--color-black);
+  --bg-secondary: var(--color-gray-900);
+  --bg-elevated: var(--color-gray-800);
+  --bg-inverse: var(--color-white);
+
+  /* Text */
+  --text-primary: var(--color-white);
+  --text-secondary: var(--color-gray-300);
+  --text-muted: var(--color-gray-500);
+  --text-inverse: var(--color-black);
+
+  /* Borders */
+  --border-primary: var(--color-white);
+  --border-secondary: var(--color-gray-600);
+
+  /* Accents */
+  --accent-primary: var(--color-neon-light);
+  --accent-primary-hover: var(--color-neon);
+  --accent-primary-text: var(--color-black);
+  --accent-success: var(--color-lilac-light);
+  --accent-success-hover: var(--color-lilac);
+  --accent-success-text: var(--color-black);
+
+  /* Shadows (color component) */
+  --shadow-color: var(--color-white);
+
+  /* Overlay backgrounds (same values work on dark bg) */
+  --overlay-bg: rgba(0, 0, 0, 0.85);
+  --overlay-bg-light: rgba(0, 0, 0, 0.6);
+
+  /* Gradient overlays */
+  --gradient-overlay-strong: rgba(0, 0, 0, 0.95);
+  --gradient-overlay-medium: rgba(0, 0, 0, 0.85);
+  --gradient-overlay-light: rgba(0, 0, 0, 0.6);
+  --gradient-overlay-none: rgba(0, 0, 0, 0);
+
+  /* Accent hover backgrounds */
+  --accent-hover-bg: rgba(139, 0, 0, 0.1);
+  --accent-hover-bg-strong: rgba(139, 0, 0, 0.2);
+  --accent-success-bg: rgba(155, 126, 222, 0.2);
+}
+
+/* System preference fallback */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-primary: var(--color-black);
+    --bg-secondary: var(--color-gray-900);
+    --bg-elevated: var(--color-gray-800);
+    --bg-inverse: var(--color-white);
+
+    --text-primary: var(--color-white);
+    --text-secondary: var(--color-gray-300);
+    --text-muted: var(--color-gray-500);
+    --text-inverse: var(--color-black);
+
+    --border-primary: var(--color-white);
+    --border-secondary: var(--color-gray-600);
+
+    --accent-primary: var(--color-neon-light);
+    --accent-primary-hover: var(--color-neon);
+    --accent-primary-text: var(--color-black);
+    --accent-success: var(--color-lilac-light);
+    --accent-success-hover: var(--color-lilac);
+    --accent-success-text: var(--color-black);
+
+    --shadow-color: var(--color-white);
+
+    /* Overlay backgrounds */
+    --overlay-bg: rgba(0, 0, 0, 0.85);
+    --overlay-bg-light: rgba(0, 0, 0, 0.6);
+
+    /* Gradient overlays */
+    --gradient-overlay-strong: rgba(0, 0, 0, 0.95);
+    --gradient-overlay-medium: rgba(0, 0, 0, 0.85);
+    --gradient-overlay-light: rgba(0, 0, 0, 0.6);
+    --gradient-overlay-none: rgba(0, 0, 0, 0);
+
+    /* Accent hover backgrounds */
+    --accent-hover-bg: rgba(139, 0, 0, 0.1);
+    --accent-hover-bg-strong: rgba(139, 0, 0, 0.2);
+    --accent-success-bg: rgba(155, 126, 222, 0.2);
+  }
+}
+
+/* ==========================================================================
+   4. TYPOGRAPHY TOKENS
+   ========================================================================== */
+
+:root {
+  /* Font Families */
+  --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Hack', 'Fira Code', 'JetBrains Mono', 'Consolas', 'Monaco', monospace;
+
+  /* Font Sizes */
+  --text-display: 72px;
+  --text-h1: 48px;
+  --text-h2: 36px;
+  --text-h3: 24px;
+  --text-h4: 18px;
+  --text-body: 16px;
+  --text-body-sm: 14px;
+  --text-caption: 12px;
+  --text-label: 12px;
+
+  /* Line Heights */
+  --leading-display: 1.0;
+  --leading-h1: 1.1;
+  --leading-h2: 1.2;
+  --leading-h3: 1.3;
+  --leading-h4: 1.4;
+  --leading-body: 1.6;
+  --leading-caption: 1.5;
+  --leading-label: 1.2;
+
+  /* Letter Spacing */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.01em;
+  --tracking-wider: 0.02em;
+  --tracking-widest: 0.08em;
+
+  /* Font Weights */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-bold: 700;
+}
+
+/* ==========================================================================
+   5. SPACING TOKENS (8px Base Grid)
+   ========================================================================== */
+
+:root {
+  --space-0: 0;
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+  --space-8: 64px;
+  --space-10: 80px;
+  --space-12: 96px;
+  --space-16: 128px;
+}
+
+/* ==========================================================================
+   6. BORDER TOKENS
+   ========================================================================== */
+
+:root {
+  /* Border Widths */
+  --border-thin: 1px;
+  --border-base: 2px;
+  --border-thick: 3px;
+  --border-brutal: 4px;
+
+  /* Border Radius — BRUTALISM = NO RADIUS */
+  --radius-none: 0;
+  --radius-sm: 2px; /* Exception: focus rings only */
+}
+
+/* ==========================================================================
+   7. SHADOW TOKENS (Hard-Edged Only)
+   ========================================================================== */
+
+:root {
+  /* Shadow Offsets (X Y Blur Spread) */
+  --shadow-sm: 2px 2px 0 0 var(--shadow-color);
+  --shadow-base: 4px 4px 0 0 var(--shadow-color);
+  --shadow-lg: 6px 6px 0 0 var(--shadow-color);
+  --shadow-xl: 8px 8px 0 0 var(--shadow-color);
+
+  /* Interactive Shadow States */
+  --shadow-hover: 6px 6px 0 0 var(--shadow-color);
+  --shadow-active: 2px 2px 0 0 var(--shadow-color);
+
+  /* Translation for hover/active states */
+  --translate-hover: -2px, -2px;
+  --translate-active: 2px, 2px;
+}
+
+/* ==========================================================================
+   8. GRID TOKENS (20x20 System)
+   ========================================================================== */
+
+:root {
+  /* Grid Configuration */
+  --grid-columns: 20;
+  --grid-max-width: 1600px;
+  --grid-padding: var(--space-4);
+
+  /* Calculated Grid Unit */
+  --grid-unit: calc((100vw - (var(--grid-padding) * 2)) / var(--grid-columns));
+
+  /* At max width */
+  --grid-unit-max: calc((var(--grid-max-width) - (var(--grid-padding) * 2)) / var(--grid-columns));
+}
+
+/* ==========================================================================
+   9. TRANSITION TOKENS
+   ========================================================================== */
+
+:root {
+  /* Durations */
+  --duration-instant: 0ms;
+  --duration-fast: 100ms;
+  --duration-base: 150ms;
+  --duration-slow: 300ms;
+
+  /* Easing */
+  --ease-default: ease;
+  --ease-in: ease-in;
+  --ease-out: ease-out;
+  --ease-in-out: ease-in-out;
+
+  /* Common Transitions */
+  --transition-fast: var(--duration-fast) var(--ease-default);
+  --transition-base: var(--duration-base) var(--ease-default);
+  --transition-shadow: transform var(--duration-fast) var(--ease-default),
+                       box-shadow var(--duration-fast) var(--ease-default);
+}
+
+/* ==========================================================================
+   10. Z-INDEX SCALE
+   ========================================================================== */
+
+:root {
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-popover: 600;
+  --z-tooltip: 700;
+}
+
+/* ==========================================================================
+   11. BREAKPOINTS (for reference — use @media in CSS)
+   ========================================================================== */
+
+/*
+  --breakpoint-sm: 640px;   (Mobile landscape / Small tablet)
+  --breakpoint-md: 768px;   (Tablet portrait)
+  --breakpoint-lg: 1024px;  (Tablet landscape / Small desktop)
+  --breakpoint-xl: 1280px;  (Desktop)
+  --breakpoint-2xl: 1536px; (Large desktop)
+*/

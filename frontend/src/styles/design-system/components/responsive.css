@@ -1,0 +1,552 @@
+/**
+ * BRUTALIST RESPONSIVE UTILITIES
+ * Mobile-first responsive design - raw, functional, unapologetic on small screens.
+ *
+ * Breakpoints:
+ * - Mobile: < 640px (default)
+ * - Tablet: 640px - 1023px
+ * - Desktop: 1024px+
+ *
+ * Target: 375px minimum width
+ */
+
+/* ==========================================================================
+   1. MOBILE-FIRST BASE ADJUSTMENTS (< 640px)
+   ========================================================================== */
+
+@media (max-width: 639px) {
+  /* Reduce base padding */
+  :root {
+    --grid-padding: var(--space-2);
+  }
+
+  /* Global touch-friendly minimum sizes */
+  button,
+  .btn-brutal,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Stack utilities */
+  .mobile-stack {
+    flex-direction: column !important;
+  }
+
+  .mobile-stack > * {
+    width: 100% !important;
+  }
+
+  /* Full width on mobile */
+  .mobile-full-width {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  /* Hide on mobile */
+  .mobile-hidden {
+    display: none !important;
+  }
+
+  /* Show only on mobile */
+  .mobile-only {
+    display: block !important;
+  }
+
+  /* Reduced spacing on mobile */
+  .mobile-p-2 { padding: var(--space-2) !important; }
+  .mobile-p-3 { padding: var(--space-3) !important; }
+  .mobile-px-2 { padding-left: var(--space-2) !important; padding-right: var(--space-2) !important; }
+  .mobile-py-2 { padding-top: var(--space-2) !important; padding-bottom: var(--space-2) !important; }
+  .mobile-py-3 { padding-top: var(--space-3) !important; padding-bottom: var(--space-3) !important; }
+
+  .mobile-gap-2 { gap: var(--space-2) !important; }
+  .mobile-gap-3 { gap: var(--space-3) !important; }
+
+  /* Text adjustments */
+  .mobile-text-center {
+    text-align: center !important;
+  }
+
+  .mobile-text-left {
+    text-align: left !important;
+  }
+}
+
+/* Desktop only */
+@media (min-width: 640px) {
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   2. CONTROLS BAR - STACKED SEARCH & FILTERS
+   ========================================================================== */
+
+.controls-bar-responsive {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+@media (max-width: 639px) {
+  .controls-bar-responsive {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  /* Search container takes remaining space on mobile */
+  .controls-bar-responsive .search-container {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* Smaller search input on mobile */
+  .controls-bar-responsive .search-input {
+    padding: var(--space-1) var(--space-2);
+    padding-left: 32px;
+    font-size: var(--text-caption);
+  }
+
+  .controls-bar-responsive .search-icon {
+    left: 8px;
+    width: 14px;
+    height: 14px;
+  }
+
+  /* Controls row - view toggle stays inline */
+  .controls-bar-responsive .controls-row {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  /* Smaller view toggle buttons on mobile */
+  .controls-bar-responsive .view-toggle {
+    gap: 0;
+  }
+
+  .controls-bar-responsive .view-toggle-btn {
+    min-height: 36px;
+    min-width: 36px;
+    padding: var(--space-1);
+  }
+}
+
+/* ==========================================================================
+   3. INLINE STAMPS (Mobile adaptation of zine stamps)
+   ========================================================================== */
+
+.stamps-inline {
+  position: static;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.stamp-compact {
+  padding: var(--space-1) var(--space-2);
+  border-width: 2px;
+}
+
+.stamp-compact .zine-stamp-number {
+  font-size: var(--text-h4);
+}
+
+.stamp-compact .zine-stamp-label {
+  font-size: 10px;
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   4. CARD STACKING (For CTAs and stats)
+   ========================================================================== */
+
+/* Stats grid - inline on desktop, 2 columns on mobile */
+.stats-grid-responsive {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+@media (max-width: 639px) {
+  /* Stack CTA cards vertically */
+  .cta-card-responsive {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .cta-card-responsive .cta-icon {
+    margin-bottom: var(--space-2);
+  }
+
+  /* Stats grid - 2 columns on mobile */
+  .stats-grid-responsive {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: var(--space-2) !important;
+  }
+}
+
+/* ==========================================================================
+   5. DETAIL PAGE HEADER ADJUSTMENTS
+   ========================================================================== */
+
+@media (max-width: 639px) {
+  /* Allow title to use full width */
+  .zine-title {
+    max-width: 100% !important;
+  }
+
+  /* Stack back button and badges */
+  .detail-header-meta {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: var(--space-2) !important;
+  }
+
+  /* Summary cards full width */
+  .detail-summary-card {
+    width: 100% !important;
+  }
+}
+
+/* ==========================================================================
+   6. EPISODE/CONTENT GRIDS
+   ========================================================================== */
+
+@media (max-width: 639px) {
+  .episode-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ==========================================================================
+   7. BUTTON GROUPS
+   ========================================================================== */
+
+@media (max-width: 639px) {
+  .button-group-responsive {
+    flex-direction: column !important;
+    width: 100%;
+  }
+
+  .button-group-responsive > * {
+    width: 100% !important;
+  }
+
+  .button-group-responsive .btn-brutal {
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   8. FORM LAYOUT ADJUSTMENTS
+   ========================================================================== */
+
+@media (max-width: 639px) {
+  /* Ensure form inputs are full width */
+  .form-responsive input,
+  .form-responsive select,
+  .form-responsive textarea {
+    width: 100% !important;
+  }
+
+  /* Form rows stack vertically */
+  .form-row-responsive {
+    flex-direction: column !important;
+    gap: var(--space-2) !important;
+  }
+
+  .form-row-responsive > * {
+    width: 100% !important;
+  }
+}
+
+/* ==========================================================================
+   9. MODAL FOOTER BUTTONS
+   ========================================================================== */
+
+@media (max-width: 639px) {
+  .modal-brutal-footer {
+    flex-direction: column-reverse;
+    gap: var(--space-2);
+  }
+
+  .modal-brutal-footer > * {
+    width: 100%;
+  }
+
+  .modal-brutal-footer .btn-brutal {
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   10. WIZARD/STEP INDICATORS
+   ========================================================================== */
+
+@media (max-width: 639px) {
+  .wizard-steps-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .wizard-steps-responsive::-webkit-scrollbar {
+    display: none;
+  }
+
+  .wizard-steps-responsive .step-indicator {
+    min-width: max-content;
+    padding: var(--space-1) var(--space-2);
+  }
+}
+
+/* ==========================================================================
+   11. SUBTITLE MANAGER MOBILE STYLES
+   ========================================================================== */
+
+@media (max-width: 639px) {
+  /* Subtitle manager grid stacks on mobile */
+  .subtitle-manager-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--space-3) !important;
+    padding: 0;
+  }
+
+  .subtitle-manager-col {
+    width: 100%;
+  }
+
+  .stack-vertical {
+    gap: var(--space-3) !important;
+  }
+
+  /* Constrain subtitle manager grid to viewport */
+  .grid-brutal-gap {
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Ensure cards don't overflow */
+  .grid-brutal-gap > [class*="col-span"] {
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  /* Upload dropzone mobile adjustments */
+  .upload-dropzone {
+    padding: var(--space-3);
+    margin: 0;
+  }
+
+  /* Language dropdown container */
+  .language-dropdown-container {
+    width: 100%;
+  }
+
+  .language-dropdown {
+    max-height: 180px;
+  }
+
+  /* Subtitle item cards - prevent overflow */
+  .subtitle-item {
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .subtitle-item .truncate {
+    max-width: calc(100vw - 120px);
+  }
+
+  /* Card headers tighter on mobile */
+  .card-header {
+    padding: var(--space-2) !important;
+  }
+
+  .card-header h3,
+  .card-header .text-h4 {
+    font-size: var(--text-body) !important;
+  }
+
+  /* Subtitle list scroll container */
+  .subtitle-list-scroll {
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  /* Dual subtitle creator mobile styles */
+  .episode-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--space-3) !important;
+  }
+
+  /* Stack action buttons vertically on mobile */
+  .episode-grid + .divider ~ .stack-row,
+  .dual-subtitle-actions {
+    flex-direction: column !important;
+    width: 100%;
+  }
+
+  .dual-subtitle-actions > * {
+    width: 100% !important;
+  }
+
+  .dual-subtitle-actions .btn-brutal {
+    width: 100% !important;
+    justify-content: center;
+  }
+
+  /* CTA card in dual creator */
+  .card-elevated .stack-row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .card-elevated .stack-row > svg {
+    margin: 0 auto var(--space-2);
+  }
+
+  /* Style form adjustments */
+  .style-form-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--space-3) !important;
+  }
+
+  /* Ensure all nested grids stack on mobile */
+  .grid-brutal,
+  .grid-brutal-gap {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--space-3) !important;
+  }
+}
+
+/* ==========================================================================
+   12. SAFE AREA INSETS (For notched devices)
+   ========================================================================== */
+
+@supports (padding: max(0px)) {
+  .safe-area-inset {
+    padding-left: max(var(--space-2), env(safe-area-inset-left));
+    padding-right: max(var(--space-2), env(safe-area-inset-right));
+    padding-bottom: max(var(--space-2), env(safe-area-inset-bottom));
+  }
+}
+
+/* ==========================================================================
+   13. DETAIL PAGE MOBILE OVERRIDES
+   ========================================================================== */
+
+@media (max-width: 639px) {
+  /* Episode and movie detail page padding reset - handled by content wrapper */
+  .episode-detail,
+  .movie-detail,
+  .show-detail {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* Remove extra padding from zine header on detail pages */
+  .zine-header-detail {
+    padding: var(--space-2) 0 !important;
+  }
+
+  /* Zine header content - edge to edge */
+  .zine-header-detail .zine-header-content {
+    padding-left: var(--space-2);
+    padding-right: var(--space-2);
+  }
+
+  /* Remove horizontal padding from content wrapper on mobile - edge to edge */
+  .episode-detail-content,
+  .movie-detail-content,
+  .show-detail-content {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Remove px-4 padding from Box wrappers inside detail pages - edge to edge cards */
+  .episode-detail-content > .px-4,
+  .movie-detail-content > .px-4,
+  .episode-detail-content > [class*="px-"],
+  .movie-detail-content > [class*="px-"] {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Cards inside detail pages - full width edge to edge */
+  .episode-detail-content .card-brutal,
+  .episode-detail-content .card-brutal-outline,
+  .movie-detail-content .card-brutal,
+  .movie-detail-content .card-brutal-outline {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+  }
+
+  /* Grid containers edge-to-edge */
+  .episode-detail-content .grid-brutal-gap,
+  .movie-detail-content .grid-brutal-gap,
+  .episode-detail-content .subtitle-manager-grid,
+  .movie-detail-content .subtitle-manager-grid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Subtitle manager cards flush on mobile */
+  .episode-detail-content .grid-brutal-gap .card-brutal-outline,
+  .movie-detail-content .grid-brutal-gap .card-brutal-outline,
+  .episode-detail-content .subtitle-manager-grid .card-brutal-outline,
+  .movie-detail-content .subtitle-manager-grid .card-brutal-outline {
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+  }
+
+  /* Inner card padding - content inside cards */
+  .episode-detail-content .card-brutal-outline > .p-4,
+  .movie-detail-content .card-brutal-outline > .p-4,
+  .episode-detail-content .card-brutal-outline > .p-3,
+  .movie-detail-content .card-brutal-outline > .p-3 {
+    padding: var(--space-3) var(--space-2) !important;
+  }
+
+  /* Card internal padding */
+  .episode-detail-content .card-brutal-outline,
+  .movie-detail-content .card-brutal-outline {
+    padding-left: var(--space-2);
+    padding-right: var(--space-2);
+  }
+}
+
+/* ==========================================================================
+   14. REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

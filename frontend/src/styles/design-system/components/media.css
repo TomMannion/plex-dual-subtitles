@@ -1,0 +1,935 @@
+/**
+ * BRUTALIST MEDIA COMPONENTS
+ * Media cards, grids, and masonry layouts
+ */
+
+/* ==========================================================================
+   MEDIA CARD
+   ========================================================================== */
+
+.media-card-brutal {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: var(--border-thick) solid var(--border-primary);
+  background: var(--color-black);
+  text-decoration: none;
+  box-shadow: var(--shadow-base);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.media-card-brutal:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 0 var(--accent-primary);
+}
+
+.media-card-brutal:active {
+  transform: translate(0, 0);
+  box-shadow: 2px 2px 0 0 var(--accent-primary);
+}
+
+/* ==========================================================================
+   MEDIA CARD IMAGE
+   ========================================================================== */
+
+.media-card-brutal-image {
+  position: absolute;
+  inset: 0;
+}
+
+.media-card-brutal-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.media-card-brutal:hover .media-card-brutal-image img {
+  filter: grayscale(0%);
+}
+
+.media-card-brutal-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    var(--gradient-overlay-strong) 0%,
+    var(--gradient-overlay-light) 30%,
+    var(--gradient-overlay-none) 60%
+  );
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   MEDIA CARD BADGE
+   ========================================================================== */
+
+.media-card-brutal-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+
+  padding: 4px 8px;
+
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: var(--weight-black);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+
+  color: var(--accent-primary-text);
+  background: var(--accent-primary);
+  border-right: var(--border-sm) solid var(--border-primary);
+  border-bottom: var(--border-sm) solid var(--border-primary);
+}
+
+/* ==========================================================================
+   MEDIA CARD CONTENT
+   ========================================================================== */
+
+.media-card-brutal-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+
+  padding: var(--space-2);
+
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.media-card-brutal-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-black);
+  line-height: 1.2;
+  letter-spacing: var(--tracking-tight);
+  text-transform: uppercase;
+
+  color: var(--text-primary);
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.media-card-brutal-subtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wide);
+
+  color: var(--text-muted);
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.media-card-brutal-border {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  border: 3px solid transparent;
+  transition: border-color 0.15s ease;
+}
+
+.media-card-brutal:hover .media-card-brutal-border {
+  border-color: var(--accent-primary);
+}
+
+/* ==========================================================================
+   MASONRY GRID
+   ========================================================================== */
+
+.masonry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-auto-rows: 80px;
+  grid-auto-flow: dense;
+  gap: var(--space-2);
+  width: 100%;
+  max-width: 2200px;
+}
+
+@media (min-width: 768px) {
+  .masonry-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: 90px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .masonry-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-auto-rows: 100px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .masonry-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: 110px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .masonry-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-auto-rows: 120px;
+  }
+}
+
+/* ==========================================================================
+   MASONRY PANEL
+   ========================================================================== */
+
+.masonry-panel {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-black);
+  border: var(--border-thick) solid var(--border-primary);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.masonry-panel-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.masonry-panel .media-card-brutal {
+  width: 100%;
+  height: 100%;
+  border: none;
+  box-shadow: none;
+}
+
+.masonry-panel .media-card-brutal:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.masonry-panel .media-card-brutal-border {
+  display: none;
+}
+
+.masonry-panel:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 0 var(--accent-primary);
+  z-index: 10;
+}
+
+/* ==========================================================================
+   REGULAR GRID (NON-CHAOS)
+   ========================================================================== */
+
+.media-grid-regular {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: var(--space-3);
+}
+
+@media (min-width: 768px) {
+  .media-grid-regular {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: var(--space-4);
+  }
+}
+
+/* ==========================================================================
+   LIST VIEW
+   ========================================================================== */
+
+.list-brutal {
+  display: flex;
+  flex-direction: column;
+  border: var(--border-thick) solid var(--border-primary);
+}
+
+/* List Item */
+.list-item-brutal {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+
+  padding: var(--space-2) var(--space-3);
+
+  text-decoration: none;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  border-bottom: var(--border-sm) solid var(--border-secondary);
+
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.list-item-brutal:last-child {
+  border-bottom: none;
+}
+
+/* Zebra striping */
+.list-item-brutal:nth-child(even) {
+  background: var(--bg-secondary);
+}
+
+/* Hover state */
+.list-item-brutal:hover {
+  background: var(--accent-hover-bg);
+  transform: translateX(4px);
+}
+
+.list-item-brutal:hover .list-item-brutal-accent {
+  opacity: 1;
+}
+
+.list-item-brutal:hover .list-item-brutal-thumb img {
+  filter: grayscale(0%);
+}
+
+/* Thumbnail */
+.list-item-brutal-thumb {
+  flex-shrink: 0;
+  width: 36px;
+  height: 54px;
+  overflow: hidden;
+  border: var(--border-sm) solid var(--border-primary);
+  background: var(--color-black);
+}
+
+.list-item-brutal-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter var(--transition-base);
+}
+
+/* Title */
+.list-item-brutal-title {
+  flex: 1;
+  min-width: 0;
+
+  font-family: var(--font-mono);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-tight);
+  text-transform: uppercase;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Subtitle (season/episode count) */
+.list-item-brutal-subtitle {
+  flex-shrink: 0;
+
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wide);
+
+  color: var(--text-muted);
+}
+
+/* Year */
+.list-item-brutal-year {
+  flex-shrink: 0;
+  min-width: 48px;
+
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wide);
+  text-align: right;
+
+  color: var(--text-secondary);
+}
+
+/* Metadata */
+.list-item-brutal-meta {
+  flex-shrink: 0;
+
+  padding: 2px 8px;
+
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+
+  color: var(--accent-primary-text);
+  background: var(--accent-primary);
+}
+
+/* Hover accent bar */
+.list-item-brutal-accent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--accent-primary);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+/* Legacy list containers (for backwards compatibility) */
+.shows-list-brutal,
+.movies-list-brutal {
+  display: flex;
+  flex-direction: column;
+  border: var(--border-thick) solid var(--border-primary);
+}
+
+/* ==========================================================================
+   EPISODE GRID
+   ========================================================================== */
+
+.episode-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-3);
+}
+
+.episode-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.episode-card:hover .episode-title {
+  color: var(--accent-primary);
+}
+
+.episode-title {
+  transition: color var(--transition-base);
+}
+
+.episode-badge {
+  font-size: 10px !important;
+  padding: 2px 6px !important;
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVE
+   ========================================================================== */
+
+/* ==========================================================================
+   ALPHABET NAVIGATION
+   ========================================================================== */
+
+.alphabet-list-container {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse; /* Nav on left, content on right */
+  gap: var(--space-3);
+}
+
+.alphabet-list-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Section for each letter group */
+.alphabet-list-section {
+  margin-bottom: var(--space-4);
+}
+
+.alphabet-list-section:last-child {
+  margin-bottom: 0;
+}
+
+/* Section header with letter - BRUTALIST SLASH DIVIDER */
+.alphabet-list-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  margin-bottom: var(--space-2);
+  overflow: hidden;
+}
+
+/* Main diagonal slash */
+.alphabet-list-header::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 60px;
+  right: 0;
+  height: 8px;
+  background: var(--border-primary);
+  transform: translateY(-50%) skewX(-45deg);
+  transform-origin: left center;
+}
+
+/* Secondary accent slash */
+.alphabet-list-header::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 80px;
+  width: 40%;
+  height: 3px;
+  background: var(--accent-primary);
+  transform: translateY(-50%) translateY(-8px) skewX(-45deg);
+  opacity: 0.7;
+}
+
+.alphabet-list-letter {
+  position: relative;
+  z-index: 2;
+
+  font-family: var(--font-heading);
+  font-size: var(--text-display-md);
+  font-weight: var(--weight-black);
+  line-height: 1;
+  letter-spacing: var(--tracking-tight);
+
+  color: var(--text-primary);
+  background: var(--bg-primary);
+
+  min-width: 56px;
+  padding: var(--space-1) var(--space-2);
+  text-align: center;
+
+  border: var(--border-thick) solid var(--border-primary);
+  box-shadow: 4px 4px 0 0 var(--accent-primary);
+}
+
+.alphabet-list-count {
+  position: relative;
+  z-index: 2;
+
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-black);
+  letter-spacing: var(--tracking-wide);
+
+  color: var(--accent-primary-text);
+  background: var(--accent-primary);
+
+  padding: 4px 10px;
+  border: var(--border-sm) solid var(--border-primary);
+
+  transform: rotate(-3deg);
+}
+
+/* Remove old line - replaced by slashes */
+.alphabet-list-line {
+  display: none;
+}
+
+/* Items container */
+.alphabet-list-items {
+  display: flex;
+  flex-direction: column;
+  border: var(--border-thick) solid var(--border-primary);
+}
+
+/* The fixed alphabet rail */
+.alphabet-nav-brutal {
+  position: sticky;
+  top: 120px;
+  right: 0;
+  z-index: 50;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+
+  height: fit-content;
+  max-height: calc(100vh - 160px);
+
+  padding: var(--space-2) var(--space-1);
+
+  background: var(--bg-primary);
+  border: var(--border-thick) solid var(--border-primary);
+  box-shadow: var(--shadow-brutal);
+}
+
+.alphabet-nav-track {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.alphabet-nav-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Individual letter button */
+.alphabet-nav-letter {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 24px;
+  height: 20px;
+  padding: 0;
+
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: var(--weight-bold);
+  line-height: 1;
+  letter-spacing: 0;
+
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  transition: all 0.1s ease;
+}
+
+.alphabet-nav-letter:hover:not(.disabled) {
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+}
+
+.alphabet-nav-letter.disabled {
+  color: var(--text-muted);
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Active letter state */
+.alphabet-nav-letter.active {
+  color: var(--accent-primary-text);
+  background: var(--accent-primary);
+  font-weight: var(--weight-black);
+}
+
+.alphabet-nav-letter.active .alphabet-nav-letter-text {
+  transform: scale(1.1);
+}
+
+/* Animated indicator bar */
+.alphabet-nav-indicator {
+  position: absolute;
+  right: -2px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 4px;
+  height: 100%;
+
+  background: var(--color-black);
+
+  animation: indicator-pulse 0.3s ease;
+}
+
+@keyframes indicator-pulse {
+  0% {
+    transform: translateY(-50%) scaleY(0);
+  }
+  50% {
+    transform: translateY(-50%) scaleY(1.2);
+  }
+  100% {
+    transform: translateY(-50%) scaleY(1);
+  }
+}
+
+/* Large callout showing current letter */
+.alphabet-nav-callout {
+  position: absolute;
+  left: calc(100% + var(--space-3));
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 56px;
+  height: 56px;
+
+  font-family: var(--font-heading);
+  font-size: var(--text-display-md);
+  font-weight: var(--weight-black);
+  line-height: 1;
+
+  color: var(--accent-primary-text);
+  background: var(--accent-primary);
+  border: var(--border-thick) solid var(--border-primary);
+  box-shadow: var(--shadow-brutal);
+
+  animation: callout-pop 0.2s ease;
+  pointer-events: none;
+}
+
+@keyframes callout-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+/* Hide callout by default, show on nav hover */
+.alphabet-nav-brutal .alphabet-nav-callout {
+  display: none;
+}
+
+.alphabet-nav-brutal:hover .alphabet-nav-callout {
+  display: flex;
+}
+
+/* ==========================================================================
+   ALPHABET NAVIGATION MOBILE
+   ========================================================================== */
+
+@media (max-width: 767px) {
+  .alphabet-list-container {
+    flex-direction: column;
+  }
+
+  /* Move alphabet nav to bottom fixed bar on mobile */
+  .alphabet-nav-brutal {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+
+    flex-direction: row;
+    justify-content: center;
+
+    height: auto;
+    max-height: none;
+
+    padding: var(--space-1) var(--space-2);
+    padding-bottom: calc(var(--space-1) + env(safe-area-inset-bottom, 0px));
+
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    border-radius: 0;
+
+    box-shadow: 0 -3px 0 0 var(--border-primary);
+  }
+
+  .alphabet-nav-track {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0;
+
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+
+    /* Hide scrollbar but keep functionality */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .alphabet-nav-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .alphabet-nav-letter {
+    flex-shrink: 0;
+    width: auto;
+    min-width: 28px;
+    height: 28px;
+    padding: 0 6px;
+    font-size: 11px;
+  }
+
+  .alphabet-nav-indicator {
+    left: 50%;
+    top: auto;
+    bottom: -2px;
+    transform: translateX(-50%);
+
+    width: 100%;
+    height: 3px;
+  }
+
+  @keyframes indicator-pulse {
+    0% {
+      transform: translateX(-50%) scaleX(0);
+    }
+    50% {
+      transform: translateX(-50%) scaleX(1.2);
+    }
+    100% {
+      transform: translateX(-50%) scaleX(1);
+    }
+  }
+
+  .alphabet-nav-callout {
+    display: none !important;
+  }
+
+  /* Add bottom padding to content so it's not hidden behind fixed nav */
+  .alphabet-list-content {
+    padding-bottom: 56px;
+  }
+
+  /* Mobile section header adjustments */
+  .alphabet-list-header {
+    padding: var(--space-2) 0;
+    margin-bottom: var(--space-1);
+  }
+
+  /* Smaller diagonal slash on mobile */
+  .alphabet-list-header::before {
+    left: 48px;
+    height: 6px;
+  }
+
+  .alphabet-list-header::after {
+    left: 64px;
+    height: 2px;
+    transform: translateY(-50%) translateY(-6px) skewX(-45deg);
+  }
+
+  .alphabet-list-letter {
+    font-size: var(--text-display-xs);
+    min-width: 40px;
+    padding: var(--space-1);
+    box-shadow: 3px 3px 0 0 var(--accent-primary);
+  }
+
+  .alphabet-list-count {
+    font-size: 10px;
+    padding: 2px 6px;
+    transform: rotate(-2deg);
+  }
+
+  /* Tighter section spacing */
+  .alphabet-list-section {
+    margin-bottom: var(--space-3);
+  }
+
+  /* Items container - thinner border */
+  .alphabet-list-items {
+    border-width: 2px;
+  }
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 639px) {
+  /* Single column full-width cards on mobile - disable masonry */
+  .masonry-grid {
+    display: flex !important;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  /* Reset all masonry panel spans and sizing for mobile */
+  .masonry-panel {
+    grid-column: unset !important;
+    grid-row: unset !important;
+    width: 100% !important;
+    aspect-ratio: 16 / 9;
+    min-height: 180px;
+    max-height: 240px;
+  }
+
+  /* All panel size variants become uniform on mobile */
+  .masonry-panel-small,
+  .masonry-panel-medium,
+  .masonry-panel-large,
+  .masonry-panel-wide,
+  .masonry-panel-hero,
+  .masonry-panel-feature {
+    grid-column: unset !important;
+    grid-row: unset !important;
+  }
+
+  /* Regular grid also single column */
+  .media-grid-regular {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+
+  /* Episode grid single column */
+  .episode-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+
+  /* Card content adjustments */
+  .media-card-brutal-content {
+    padding: var(--space-2) var(--space-2);
+  }
+
+  .media-card-brutal-title {
+    font-size: var(--text-body);
+    white-space: normal;
+    line-height: 1.3;
+  }
+
+  .media-card-brutal-subtitle {
+    font-size: var(--text-body-sm);
+  }
+
+  /* Badge size on mobile */
+  .media-card-brutal-badge {
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+
+  /* List view spacing */
+  .shows-list-brutal,
+  .movies-list-brutal {
+    gap: var(--space-2);
+  }
+
+  /* List item mobile adjustments */
+  .list-item-brutal {
+    padding: var(--space-2);
+    gap: var(--space-2);
+  }
+
+  .list-item-brutal-thumb {
+    width: 32px;
+    height: 48px;
+  }
+
+  .list-item-brutal-title {
+    font-size: var(--text-caption);
+  }
+
+  /* Hide year on mobile to save space - show only subtitle */
+  .list-item-brutal-year {
+    display: none;
+  }
+
+  .list-item-brutal-subtitle {
+    font-size: 10px;
+  }
+
+  .list-item-brutal-meta {
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+}

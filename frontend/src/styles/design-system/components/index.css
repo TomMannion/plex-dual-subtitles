@@ -1,0 +1,37 @@
+/**
+ * PLEX DUALSUB MANAGER — BRUTALIST COMPONENTS
+ *
+ * Hard edges. Harsh shadows. No apologies.
+ *
+ * Every component follows the brutalist principles:
+ * - Visible borders (2-4px solid)
+ * - Hard-offset shadows (no blur)
+ * - No border-radius
+ * - Monochrome + blood red accent
+ *
+ * Import Order:
+ * 1. Buttons — Primary interactions
+ * 2. Cards — Container components
+ * 3. Forms — Inputs, selects, controls
+ * 4. Navigation — Header, nav links
+ * 5. Media — Media cards, grids
+ * 6. Feedback — Badges, alerts, progress
+ * 7. Layout — Page layouts, containers
+ * 8. Zine Header — Magazine-style header
+ * 9. Utilities — Component utilities
+ */
+
+@import './buttons.css';
+@import './cards.css';
+@import './forms.css';
+@import './navigation.css';
+@import './media.css';
+@import './feedback.css';
+@import './layout.css';
+@import './zine-header.css';
+@import './modals.css';
+@import './dropdown.css';
+@import './checkbox.css';
+@import './tabs.css';
+@import './utilities.css';
+@import './responsive.css';
