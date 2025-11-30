@@ -441,14 +441,14 @@ PlexDualSub/
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                        FRONTEND                              │
+│                        FRONTEND                             │
 │  React 19 + TypeScript + TanStack Query + Brutalist CSS     │
 └─────────────────────────────────────────────────────────────┘
                               │
                               ▼ HTTP (Axios)
 ┌─────────────────────────────────────────────────────────────┐
-│                        BACKEND                               │
-│                   FastAPI + Uvicorn                          │
+│                        BACKEND                              │
+│                   FastAPI + Uvicorn                         │
 │  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────┐  │
 │  │   Routes    │  │  Services   │  │    Job Queue        │  │
 │  │ (REST API)  │──│ (Business)  │──│ (Background Tasks)  │  │
